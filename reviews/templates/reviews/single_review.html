@@ -1,0 +1,17 @@
+{% extends 'layout.html' %}
+{% block title %}Single Review{% endblock %}
+{% block content %}
+  <h1>{{ review.title }}</h1>
+  <p>By: {{ review.username }}</p>
+  <p>Rating: {{ review.rating }}</p>
+  <p>{{ review.content }}</p>
+  {% if favorite_review_id %}
+    <p>This is your favorite review!</p>
+  {% else %}
+  <form method="post" action="{% url 'favorite_review' %}">
+    {% csrf_token %}
+    <input type="hidden" name="review_id" value="{{ review.id }}">
+    <button>Favorite</button>
+  </form>
+  {% endif %}
+{% endblock %}

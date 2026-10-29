@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+{% load static %}
+{% block title %}Leave a Review{% endblock %}
+{% block css_files %}
+<link rel="stylesheet" type="text/css" href="{% static 'reviews/reviews.css' %}">
+{% endblock %}
+{% block content %}
+<form action="{% url 'review_list' %}" method="POST" class="form-parent">
+    <h2>Leave a Review</h2>
+    {% csrf_token %}
+    {{ form.non_field_errors }}
+    {% for field in form %}
+    <div class="form-control{% if field.errors %} errors{% endif %}">
+        {{ field.label_tag }}
+        {{ field }}
+        {{ field.errors }}
+    </div>
+    {% endfor %}
+    <button type="submit">Submit Review</button>
+</form>
+{% endblock %}

@@ -1,0 +1,10 @@
+{% extends 'layout.html' %}
+{% block title %}Review List{% endblock %}
+{% block content %}
+  <h1>Review List</h1>
+  <ul>
+    {% for review in reviews %}
+      <li>{{ review.username }}: {{ review.title }} - {{ review.rating }}</li>
+    {% endfor %}
+  </ul>
+{% endblock %}
