@@ -1,0 +1,13 @@
+{% extends "layout.html" %}
+{% load static %}
+{% block css_files %}
+<link rel="stylesheet" href="{% static 'profiles/profile.css' %}">
+{% endblock %}
+{% block content %}
+<form action="/profiles/" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.profile_picture }}
+    {% comment %} <input type="file" name="profile_picture" /> {% endcomment %}
+    <button>Upload!</button>
+  </form>
+{% endblock %}

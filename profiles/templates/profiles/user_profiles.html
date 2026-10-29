@@ -1,0 +1,13 @@
+{% extends 'layout.html' %}
+{% load static %}
+{% block css_files %}
+<link rel="stylesheet" type="text/css" href="{% static 'profiles/profile.css' %}">
+{% endblock %}
+{% block content %}
+<h1 style="text-align: center; margin-top: 20px;">User Profiles</h1>
+{% for profile in user_profiles %}
+    <div style="text-align: center; margin-top: 20px;">
+        <img src="{{ profile.profile_picture.url }}" alt="Profile Picture">
+    </div>
+{% endfor %}
+{% endblock %}
