@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+{% load static %}
+{% block title %}My Blog{% endblock %}
+{% block css_files %}<link rel="stylesheet" href="{% static 'blog/index.css' %}">
+<link rel="stylesheet" href="{% static 'blog/post.css' %}">
+{% endblock %}
+{% block content %}
+<section id='welcome'>
+    <header>
+        <img src="{% static 'blog/images/max.png' %}" alt="Welcome to My Blog">
+        <h2>Welcome to shan's Blog</h2>
+    </header>
+    <p>This is the place where I share my thoughts and experiences on various topics. Stay tuned for more updates!</p>
+</section>
+
+<section id='latest-posts'>
+    <h2>My Latest Thoughts</h2>
+    <ul>
+        {% for post in posts %}
+            {% include 'blog/shared/post.html' %}
+        {% endfor %}
+    </ul>
+</section>
+
+<section id='about'>
+    <h2>About Me</h2>
+    <p>Hello! I'm Shan, a passionate blogger who loves to explore new places and share my experiences. Through this blog, I aim to connect with like-minded individuals and inspire others to embark on their own adventures.</p>
+    <p>When I'm not blogging, you can find me hiking in the mountains, exploring new cities, or relaxing by the beach. I believe in living life to the fullest and capturing every moment through my writing and photography.</p>
+</section>
+{% endblock %}

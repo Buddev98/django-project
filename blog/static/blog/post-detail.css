@@ -1,0 +1,190 @@
+body {
+  background-color: #e7e7e7;
+}
+
+#main-navigation {
+  background-color: #390281;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+}
+
+#summary {
+  margin: 8rem auto 3rem auto;
+  padding: 2rem;
+  width: 90%;
+  max-width: 90rem;
+  border-radius: 16px;
+  background-color: #5706c0;
+  position: relative;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  height: 22rem;
+}
+
+#summary h2 {
+  color: white;
+  font-size: 4.5rem;
+  margin-bottom: 0.5rem;
+}
+
+#summary article {
+  position: absolute;
+  top: 2rem;
+  right: 3rem;
+  padding: 1rem 2rem;
+  border-radius: 12px;
+  text-align: right;
+  color: white;
+}
+
+#summary article img {
+  width: 12rem;
+  height: 12rem;
+  border-radius: 12px;
+  transform: rotateZ(5deg);
+  border: 5px solid white;
+  margin-bottom: 1rem;
+}
+
+#summary address {
+  font-weight: bold;
+}
+
+#summary a {
+  color: white;
+  text-decoration: none;
+}
+
+#summary time {
+  font-weight: bold;
+} 
+
+main {
+  width: 90%;
+  max-width: 90rem;
+  margin: 3rem auto;
+  background-color: white;
+  padding: 1rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+}
+
+
+.tag {
+  background-color: white;
+  color:#390281;
+  padding: 0.25rem 0.5rem;
+  border-radius: 8px;
+}
+
+#add-comment {
+  max-width: 40rem;
+  margin: 2rem auto 0;
+  padding-top: 1rem;
+  border-top: 1px solid #ddd;
+}
+
+#add-comment h3 {
+  color: #390281;
+}
+
+#add-comment .comment-field {
+  margin-bottom: 1rem;
+}
+
+#add-comment label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+#add-comment .form-control {
+  display: block;
+  width: 100%;
+  font: inherit;
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+#add-comment textarea {
+  min-height: 10rem;
+  resize: vertical;
+}
+
+#add-comment .form-control:focus {
+  outline: 2px solid #390281;
+  outline-offset: 2px;
+}
+
+#add-comment .errorlist {
+  list-style: none;
+  padding: 0;
+  margin: 0.5rem 0;
+  color: #680000;
+}
+
+#add-comment .errors .form-control {
+  border-color: #680000;
+  background-color: #fde3e3;
+}
+
+#add-comment .errors label {
+  color: #680000;
+}
+
+#add-comment button {
+  font: inherit;
+  cursor: pointer;
+  padding: 0.75rem 1.5rem;
+  border: 1px solid #390281;
+  border-radius: 8px;
+  color: white;
+  background-color: #390281;
+  margin-bottom: 1rem;
+}
+
+#add-comment button:hover,
+#add-comment button:active {
+  background-color: #5706c0;
+  border-color: #5706c0;
+}
+
+#add-comment button:focus-visible {
+  outline: 2px solid #390281;
+  outline-offset: 3px;
+}
+  
+#read-later {
+  text-align: right;
+  margin-bottom: 1rem;
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  border: 1px solid white;
+  border-radius: 8px;
+}
+
+#read-later button {
+  font: inherit;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  border: 1px solid #390281;
+  border-radius: 8px;
+  color: white;
+  background-color: #390281;
+}
+
+#read-later button:hover,
+#read-later button:active {
+  background-color: #5706c0;
+  border-color: #5706c0;
+}
+
+.stored-posts-container {
+  width: 90%;
+  max-width: 90rem;
+  margin: 4rem auto;
+  background-color: white;
+  padding: 1rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+}

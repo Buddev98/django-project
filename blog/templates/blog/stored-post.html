@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+{% load static %}
+{% block css_files %}<link rel="stylesheet" href="{% static 'blog/post-detail.css' %}">{% endblock %}
+{% block title %}Stored Posts{% endblock %}
+{% block content %}
+<div class="stored-posts-container">
+<h2>Stored Posts</h2>
+<ul>
+    {% for post in stored_posts %}
+        <li><a href="{% url 'post_detail' slug=post.slug %}">{{ post.title }}</a></li>
+    {% empty %}
+        <li>No stored posts.</li>
+    {% endfor %}
+</ul>
+</div>
+{% endblock %}

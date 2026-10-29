@@ -1,0 +1,63 @@
+{% extends "layout.html" %}
+{% load static %}
+{% block title %}Post Detail{% endblock %}
+{% block css_files %}<link rel="stylesheet" href="{% static 'blog/post-detail.css' %}">{% endblock %}
+{% block content %}
+<section id='summary'>
+    <h2>{{ post.title }}</h2>
+    <div>
+        {% for tag in tags %}
+            <span class="tag">{{ tag.caption }}</span>
+        {% endfor %}
+    </div>
+    {% if not is_stored %}
+    <div id="read-later">
+        <form action="{% url 'read_later' slug=post.slug %}" method="post">
+            {% csrf_token %}
+            <input type="hidden" name="slug" value="{{ post.slug }}">
+            <button>Read Later</button>
+        </form>
+    </div>
+    {% endif %}
+    <article>
+        <img src="{{ post.image.url }}" alt="{{ post.title }}">
+        <address>
+            <a href="mailto:{{ post.author.email_address }}">{{ post.author }}</a>
+        </address>
+        <div> Last updated: {{ post.date|date:"d M Y" }}</div>
+    </article>
+</section>
+<main>
+    <p>{{ post.content|linebreaks }}</p>
+    <!-- Comments Section -->
+    <section id="comments">
+        <h3>Comments</h3>
+        {% for comment in comments %}
+            <div class="comment">
+                <p><strong>{{ comment.name }}</strong> ({{ comment.date|date:"d M Y" }})</p>
+                <p>{{ comment.content|linebreaks }}</p>
+            </div>
+        {% empty %}
+            <p>No comments yet.</p>
+        {% endfor %}
+    </section> <!-- End Comments Section -->
+    <section id="add-comment">
+        {% if form.errors %}
+            <p class="error" style="color: red; border: 1px solid red; padding: 5px;">Please correct the errors below.</p>
+        {% endif %}
+        <h3>Add a Comment</h3>
+        <form action="{% url 'post_detail' slug=post.slug %}#add-comment" method="post" novalidate>
+            {% csrf_token %}
+            {{ form.non_field_errors }}
+            {% for field in form %}
+            <div class="comment-field{% if field.errors %} errors{% endif %}">
+                {{ field.label_tag }}
+                {{ field }}
+                {{ field.errors }}
+            </div>
+            {% endfor %}
+            <button type="submit">Submit Comment</button>
+        </form>
+    </section>
+</main>
+{% endblock %}
